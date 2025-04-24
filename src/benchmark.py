@@ -1,4 +1,3 @@
-# benchmark.py
 import time
 import os
 import statistics

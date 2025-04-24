@@ -1,4 +1,3 @@
-# verificacion.py
 from src.hash_utils import calculate_hash_string, calculate_hash_file, compare_hashes
 import os
 

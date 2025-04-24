@@ -1,4 +1,3 @@
-# Añadir a hash_utils.py
 import hashlib
 
 

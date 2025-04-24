@@ -1,4 +1,3 @@
-# gui/history_tab.py (versión simplificada)
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 import os

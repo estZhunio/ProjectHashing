@@ -1,4 +1,3 @@
-# gui/file_hash_tab.py
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, scrolledtext
 import os

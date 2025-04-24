@@ -1,4 +1,3 @@
-# gui/text_hash_tab.py
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 from src.hash_utils import calculate_hash_string
