@@ -1,0 +1,16 @@
+# __pycache__ y archivos temporales
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# PyCharm
+.idea/
+
+# Otros
+.DS_Store
+*.log
+*.sqlite3
