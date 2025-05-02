@@ -2,11 +2,12 @@ import tkinter as tk
 from tkinter import ttk, scrolledtext
 
 # Importar clases de pestañas
-from src.gui.text_hash_tab import TextHashTab
-from src.gui.file_hash_tab import FileHashTab
+from src.gui.hash_converter_tab import HashConverterTab
 from src.gui.verify_tab import VerifyTab
 from src.gui.benchmark_tab import BenchmarkTab
 from src.gui.history_tab import HistoryTab
+from src.gui.digital_signature_tab import DigitalSignatureTab
+
 
 
 class HashingApp:
@@ -20,8 +21,17 @@ class HashingApp:
         self.setup_styles()
 
         # Algoritmos de hash disponibles
-        self.hash_algorithms = ["SHA-256", "SHA-512", "SHA-3", "MD5"]
-
+        self.hash_algorithms = [
+            "SHA-256",
+            "SHA-512",
+            "SHA-3",
+            "SHA-1",
+            "MD5",
+            "bcrypt",
+            "Argon2",
+            "BLAKE2",
+            "BLAKE3"
+        ]
         self.create_widgets()
 
     def setup_styles(self):
@@ -62,15 +72,11 @@ class HashingApp:
 
     def setup_tabs(self):
         """Configura las pestañas de la aplicación"""
-        # Pestaña de hashing de texto
+        # Generar hash
         text_tab = ttk.Frame(self.notebook)
-        self.notebook.add(text_tab, text="Hashing de Texto")
-        self.text_hash_tab = TextHashTab(text_tab, self.hash_algorithms, self.status_var)
+        self.notebook.add(text_tab, text="Generar Hash")
+        self.hash_converter_tab = HashConverterTab(text_tab, self.hash_algorithms, self.status_var)
 
-        # Pestaña de hashing de archivos
-        file_tab = ttk.Frame(self.notebook)
-        self.notebook.add(file_tab, text="Hashing de Archivos")
-        self.file_hash_tab = FileHashTab(file_tab, self.hash_algorithms, self.status_var)
 
         # Pestaña de verificación
         verify_tab = ttk.Frame(self.notebook)
@@ -78,14 +84,19 @@ class HashingApp:
         self.verify_tab = VerifyTab(verify_tab, self.hash_algorithms, self.status_var)
 
         # Pestaña de benchmark
-        benchmark_tab = ttk.Frame(self.notebook)
-        self.notebook.add(benchmark_tab, text="Benchmark")
-        self.benchmark_tab = BenchmarkTab(benchmark_tab, self.hash_algorithms, self.status_var)
+        # benchmark_tab = ttk.Frame(self.notebook)
+        # self.notebook.add(benchmark_tab, text="Benchmark")
+        # self.benchmark_tab = BenchmarkTab(benchmark_tab, self.hash_algorithms, self.status_var)
 
         # Pestaña de historial
         history_tab = ttk.Frame(self.notebook)
         self.notebook.add(history_tab, text="Historial")
         self.history_tab = HistoryTab(history_tab, self.hash_algorithms, self.status_var)
+
+        # Firma digital
+        signature_tab = ttk.Frame(self.notebook)
+        self.notebook.add(signature_tab, text="Firmas Digitales")
+        self.digital_signature_tab = DigitalSignatureTab(signature_tab, self.hash_algorithms, self.status_var)
 
     def create_menu(self):
         """Crea el menú de la aplicación"""

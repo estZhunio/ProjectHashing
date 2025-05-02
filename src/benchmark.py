@@ -86,7 +86,7 @@ def benchmark_archivo(ruta_archivo, algoritmos=None, iteraciones=3):
 
         resultados.append((algoritmo, tiempo_promedio, desviacion, velocidad, hash_valor))
 
-    # Ordenar por tiempo (más rápido primero)
+    # Ordenar por tiempo (entre el mas rapido al menos rapido)
     resultados.sort(key=lambda x: x[1])
 
     return resultados
